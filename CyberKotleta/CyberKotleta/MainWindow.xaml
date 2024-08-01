@@ -1,0 +1,61 @@
+﻿<Window x:Class="CyberKotleta.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CyberKotleta"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded" Initialized="Window_Initialized">
+    <Grid>
+
+        <ListView x:Name="listView1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="0,0,0,292">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="160"/>
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="180"/>
+                            <ColumnDefinition Width="60"/>
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="120"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="10"/>
+                            <RowDefinition Height="15"/>
+                            <RowDefinition Height="15"/>
+                            <RowDefinition Height="15"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <Image Source="{Binding PhotoFull}" Width="100" Height="100" Grid.Row="0" Grid.RowSpan="5" Stretch="UniformToFill" HorizontalAlignment="Center" Margin="10"></Image>
+                        <TextBlock Text="{Binding CyberFio}" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" TextAlignment="Left" FontSize="14"/>
+                        <TextBlock Text="{Binding Gender, StringFormat={}Пол: {0}}" Grid.Row="1" Grid.Column="1" TextAlignment="Left"/>
+                        <TextBlock Text="{Binding CoachFio, StringFormat={}Тренер: {0}}" Grid.Row="2" Grid.Column="2" TextAlignment="Left"/>
+                        <TextBlock Text="{Binding BirthDay, StringFormat={}Дата рождения:{0:d}}" Grid.Row="0" Grid.Column="2" TextAlignment="Left"/>
+                        <TextBlock Text="{Binding Country, StringFormat={}Страна: {0}}" Grid.Row="1" Grid.Column="2" TextAlignment="Left"/>
+                        <TextBlock Text="{Binding Dpr, StringFormat={}DPR: {0}}" Grid.Row="0" Grid.Column="4" TextAlignment="Left"/>
+                        <TextBlock Text="{Binding Impact, StringFormat={}IMPACT: {0}}" Grid.Row="1" Grid.Column="4" TextAlignment="Left"/>
+                        <TextBlock Text="{Binding Adr, StringFormat={}ADR: {0}}" Grid.Row="2" Grid.Column="4" TextAlignment="Left"/>
+                        <TextBlock Text="{Binding Kpr, StringFormat={}KPR: {0}}" Grid.Row="3" Grid.Column="4" TextAlignment="Left"/>
+                        <TextBlock Text="{Binding Kast, StringFormat={}KAST: {0}}" Grid.Row="4" Grid.Column="4" TextAlignment="Left"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button  Content="Добавить" Click="add_Click" HorizontalAlignment="Center" Margin="0,147,0,0" VerticalAlignment="Top" Height="30" Width="106"/>
+        <Button  Content="Редактировать" Click="redact_Click" HorizontalAlignment="Center" Margin="0,197,0,0" VerticalAlignment="Top" Height="30" Width="106"/>
+        <Button  Content="Удалить" Click="delete_Click" x:Name="btnDelete" HorizontalAlignment="Center" Margin="0,242,0,0" VerticalAlignment="Top" Height="30" Width="106"/>
+
+        <Label Content="Поиск по ФИО:" Height="30" Width="106" Margin="0, 200, 650, 0"></Label>
+        <TextBox x:Name="tbFind" Height="30" Width="106"  Margin="0, 250, 650, 0" TextChanged="tbFind_TextChanged"></TextBox>
+        <Button  Content="Поиск" Height="30" Width="106"  Margin="0, 320, 650, 0"></Button>
+
+        <Label Content="Фильтр по ФИО:" Height="30" Width="106" Margin="650, 200, 0, 0"></Label>
+        <TextBox x:Name="tbFiltered" Height="30" Width="106"  Margin="650, 250, 0, 0" TextChanged="tbFiltered_TextChanged"></TextBox>
+        <Button Content="Фильтр"  Height="30" Width="106" Margin="650, 320, 0, 0"></Button>
+
+    </Grid>
+</Window>

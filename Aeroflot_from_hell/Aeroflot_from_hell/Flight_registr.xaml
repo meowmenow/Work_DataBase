@@ -1,0 +1,49 @@
+﻿<Window x:Class="Aeroflot_from_hell.Flight_registr"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Aeroflot_from_hell"
+        mc:Ignorable="d"
+        Title="Flight_registr" Height="450" Width="800">
+    <Grid Margin="3,0,-3,0">
+        <Image Source="/аэро-регистр.jpg" Stretch="Fill" Height="434" VerticalAlignment="Center" Margin="-9,0,0,0"/>
+
+        <Label Content="Flight" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="flight_reg" HorizontalAlignment="Left" Margin="10,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="59" Height="22"/>
+
+        <Label Content="Destination" HorizontalAlignment="Left" Margin="74,10,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="destination_reg" HorizontalAlignment="Left" Margin="74,42,0,0" VerticalAlignment="Top" Width="70" Height="22">
+            <ComboBoxItem>Bebrovo</ComboBoxItem>
+            <ComboBoxItem>Kolomna</ComboBoxItem>
+            <ComboBoxItem IsSelected="True">Moon</ComboBoxItem>
+        </ComboBox>
+
+        <Label Content="Departure time" HorizontalAlignment="Left" Margin="150,10,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="departure_reg" HorizontalAlignment="Left" Margin="150,42,0,0" VerticalAlignment="Top" Width="105" Height="26"/>
+
+        <Label Content="Arrival time" HorizontalAlignment="Left" Margin="259,10,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="arrival_reg" HorizontalAlignment="Left" Margin="260,42,0,0" VerticalAlignment="Top" Width="104" Height="26"/>
+
+        <Label Content="Available seets" HorizontalAlignment="Left" Margin="615,10,0,0" VerticalAlignment="Top" Width="102"/>
+        <TextBox x:Name="seets_reg" HorizontalAlignment="Left" Margin="615,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="102" Height="22"/>
+
+        <Label Content="Capacity" HorizontalAlignment="Left" Margin="722,10,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="capacity_reg" HorizontalAlignment="Left" Margin="722,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="55" Height="22"/>
+
+        <Label Content="Aircraft type" HorizontalAlignment="Left" Margin="472,11,0,0" VerticalAlignment="Top" Width="99"/>
+        <ComboBox x:Name="aircraft_reg" HorizontalAlignment="Left" Margin="472,42,0,0" VerticalAlignment="Top" Width="125" Height="22">
+            <ComboBoxItem>Boeing 747</ComboBoxItem>
+            <ComboBoxItem>Abobus</ComboBoxItem>
+            <ComboBoxItem IsSelected="True">Rocket Launcher</ComboBoxItem>
+        </ComboBox>
+
+        <Button Background="Transparent" x:Name="add_reg" Click="add_click" Content="Добавить информацию о рейсе" HorizontalAlignment="Left" Margin="10,102,0,0" VerticalAlignment="Top" Height="32" Width="192"/>
+
+        <Button Background="Transparent" x:Name="cancel_reg" Click="otmena_click" Content="Отменить добавление" HorizontalAlignment="Left" Margin="10,153,0,0" VerticalAlignment="Top" Width="192" Height="32"/>
+
+
+
+
+    </Grid>
+</Window>

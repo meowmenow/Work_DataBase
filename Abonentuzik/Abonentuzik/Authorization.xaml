@@ -1,0 +1,35 @@
+﻿<Window x:Class="Abonentuzik.Authorization"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Abonentuzik"
+        mc:Ignorable="d"
+        Title="Authorization" SizeToContent="Height" Width="200" Activated="Window_Activated">
+    <Grid>
+
+        <StackPanel x:Name="stackPanel">
+            <Label Content="Пользователь"></Label>
+            <TextBox x:Name="tbLogin" ></TextBox>
+
+            <Label Content="Пароль"></Label>
+            <PasswordBox x:Name="tbPas" PasswordChar="*"></PasswordBox>
+
+            <Grid x:Name="grid" Visibility="Collapsed">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBlock x:Name="txtCaptcha" Background="Gray" FontSize="28" Grid.Row="0" TextAlignment="Center"></TextBlock>
+                <Line x:Name="line" Grid.Row="0" ></Line>
+                <TextBox x:Name="tbCaptcha" Grid.Row="1"></TextBox>
+            </Grid>
+
+            <Button Content="Войти" IsDefault="True" Click="btnEnter_Click"></Button>
+            <Button Content="Отмена" IsCancel="True" Click="btnEsc_Click" ></Button>
+            <Button Content="Войти как кость" Click="btnGuest_Click" ></Button>
+
+        </StackPanel>
+
+    </Grid>
+</Window>

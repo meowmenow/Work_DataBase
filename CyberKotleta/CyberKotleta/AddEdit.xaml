@@ -1,0 +1,53 @@
+﻿<Window x:Class="CyberKotleta.AddEdit"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CyberKotleta"
+        mc:Ignorable="d"
+        Title="Добавление/Редактирование записи" Height="500" Width="900" Loaded="Window_Loaded">
+    <Grid>
+
+        <Label HorizontalAlignment="Left" VerticalAlignment="Top" Margin="45,20,0,0" Width="150" Height="25" Content="ФИО киберспортсмена"/>
+        <TextBox x:Name="tbFio_sportik" Text="{Binding Path = CyberFio}" BorderBrush="Black"  VerticalAlignment="Top" HorizontalAlignment="Left" Margin="45,50,0,0" Width="150" Height="25" TextWrapping="Wrap" />
+
+        <TextBox BorderBrush="Black" x:Name="tbFio_Coach" Text="{Binding Path = CoachFio}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="45,110,0,0" Width="150" Height="25" TextWrapping="Wrap"/>
+        <Label  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="45,80,0,0" Width="150" Height="25" Content="ФИО трененра"/>
+
+        <Label  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="45,140,0,0" Width="150" Height="25" >Пол</Label>
+        <ComboBox BorderBrush="Black" x:Name="cbGender" Text="{Binding Path = Gender}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="45,170,0,0" Width="150" Height="25">
+            <ComboBoxItem Content="Муж"></ComboBoxItem>
+            <ComboBoxItem Content="Жён"></ComboBoxItem>
+        </ComboBox>
+
+        <Label  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="45,200,0,0" Width="150" Height="25" Content="Страна"/>
+        <TextBox BorderBrush="Black" x:Name="tbCountry" Text="{Binding Path= Country}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="45,230,0,0" Width="150" Height="25" TextWrapping="Wrap"/>
+
+        <Label  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="45,260,0,0" Width="150" Height="25" Content="Возраст"/>
+        <DatePicker BorderBrush="Black" x:Name="dpAge" SelectedDate="{Binding Path= BirthDay }" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="45,290,0,0" Width="150" Height="25"/>
+
+        <TextBox BorderBrush="Black" x:Name="tbDPR" Text="{Binding Path = Dpr}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="210,90,0,0" Width="100" Height="20"/>
+        <Label Content="-DPR" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="310,86,0,0" Width="60" Height="23"/>
+
+        <TextBox x:Name="tbIMPACT" Text="{Binding Path = Impact}" BorderBrush="Black"  VerticalAlignment="Top" HorizontalAlignment="Left" Margin="210,135,0,0" Width="100" Height="20"/>
+        <Label Content="-IMPACT" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="310,131,0,0" Width="60" Height="23"/>
+
+        <TextBox x:Name="tbADR" Text="{Binding Path = Adr}"  BorderBrush="Black" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="210,180,0,0" Width="100" Height="20"/>
+        <Label Content="-ADR" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="310,176,0,0" Width="60" Height="23"/>
+
+        <TextBox x:Name="tbKPR" Text="{Binding Path = Kpr}"  BorderBrush="Black" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="210,225,0,0" Width="100" Height="20"/>
+        <Label Content="-KPR" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="310,221,0,0" Width="60" Height="23"/>
+
+        <TextBox  x:Name="tbKAST" Text="{Binding Path = Kast}" BorderBrush="Black" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="210,270,0,0" Width="100" Height="20"/>
+        <Label Content="-KAST" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="310,266,0,0" Width="60" Height="23"/>
+
+
+        <Label Content="Фото" Margin="628,40,81,339"/>
+        <Image x:Name="imgPhoto" Source="{Binding Path = PhotoFull}" Width="200" Height="200" Stretch="Fill" Margin="475,0,75,105"/>
+        <Button Width="125" BorderBrush="Black" Content="Добавить фото" Height="30" Margin="535,200,140,60" Click="addPhoto_Click"/>
+
+        <Button  x:Name="btnadd" BorderBrush="Black"  Content="Добавить" HorizontalAlignment="Center"  VerticalAlignment="Top" Margin="0,380,0,0"  Width="150" Click="btnadd_Click" />
+        <Button  Content="Отмена" BorderBrush="Black" HorizontalAlignment="Center"  VerticalAlignment="Top" Margin="0,410,0,0"  Width="150" Click="Otminet_Click" />
+
+    </Grid>
+</Window>

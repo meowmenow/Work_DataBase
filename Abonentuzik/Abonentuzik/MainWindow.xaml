@@ -1,0 +1,52 @@
+﻿<Window x:Class="Abonentuzik.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Abonentuzik"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded" Initialized="Window_Initialized">
+
+    <Grid>
+
+        <ListView x:Name="listView1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="0,0,0,172">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120"></ColumnDefinition>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"></RowDefinition>
+                            <RowDefinition Height="20"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Image Width="100" Height="100" Grid.Row="0" Grid.RowSpan="3" Stretch="UniformToFill" HorizontalAlignment="Center" Margin="10" Source="{Binding PhotoFull}"></Image>
+                        <TextBlock Text="{Binding Fio}" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" TextAlignment="Left" FontSize="26"/>
+                        <TextBlock Text="{Binding Gender, StringFormat={}Пол: {0}}" Grid.Row="1" Grid.Column="1" TextAlignment="Left"/>
+                        <TextBlock Text="{Binding Inn}" Grid.Row="2" Grid.Column="1" TextAlignment="Left"/>
+                        <TextBlock Text="{Binding Age, StringFormat={}Дата рождения:{0:d}}" Grid.Row="1" Grid.Column="2" TextAlignment="Left"/>
+                        <TextBlock Text="{Binding Phone}" Grid.Row="2" Grid.Column="2" TextAlignment="Left"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button Click="add_Click" Content="Добавить" HorizontalAlignment="Center" Margin="0,267,0,0" VerticalAlignment="Top" Height="30" Width="106"/>
+        <Button Click="redact_Click" Content="Редактировать" HorizontalAlignment="Center" Margin="0,317,0,0" VerticalAlignment="Top" Height="30" Width="106"/>
+        <Button x:Name="btnDelete" Click="delete_Click" Content="Удалить" HorizontalAlignment="Center" Margin="0,362,0,0" VerticalAlignment="Top" Height="30" Width="106"/>
+
+        <Label Content="Поиск по ФИО:" Height="30" Width="106" Margin="0, 200, 650, 0"></Label>
+        <TextBox x:Name="tbFind" Height="30" Width="106"  Margin="0, 250, 650, 0" TextChanged="tbFind_TextChanged"></TextBox>
+        <Button Click="search_Click" Content="Поиск" Height="30" Width="106"  Margin="0, 320, 650, 0"></Button>
+
+        <Label Content="Фильтр по ФИО:" Height="30" Width="106" Margin="650, 200, 0, 0"></Label>
+        <TextBox x:Name="tbFiltered" Height="30" Width="106"  Margin="650, 250, 0, 0"></TextBox>
+        <Button Content="Фильтр" Click="btnFiltered_Click" Height="30" Width="106" Margin="650, 320, 0, 0"></Button>
+
+
+    </Grid>
+
+</Window>

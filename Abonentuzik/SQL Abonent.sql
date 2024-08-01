@@ -1,0 +1,44 @@
+GO 
+USE Человеки
+CREATE TABLE Адрес(
+Код INT NOT NULL,
+Улица NVARCHAR(25) NOT NULL,
+Дом INT NOT NULL,
+Квартира INT NOT NULL,
+CONSTRAINT PK_Адрес_КодАдреса PRIMARY KEY (Код),
+CONSTRAINT FK_Адрес_Улица FOREIGN KEY (Улица)
+	REFERENCES Улица (Улица)
+	ON DELETE CASCADE
+	ON UPDATE CASCADE,
+CONSTRAINT FK_Адрес_Код FOREIGN KEY (Код)
+	REFERENCES Абонент (Код)
+	ON DELETE CASCADE
+	ON UPDATE CASCADE
+)
+
+CREATE TABLE Телефон (
+КодТелефон INT IDENTITY(1,1) NOT NULL,
+Номер NVARCHAR(10) NOT NULL,
+КодТипТелефона INT NOT NULL ,
+КодАбонента INT NOT NULL,
+CONSTRAINT PK_Телефон_КодТелефон PRIMARY KEY (КодТелефон),
+
+	CONSTRAINT FK_Телефон_ТипТелефона FOREIGN KEY (КодТипТелефона)
+		REFERENCES ТипТелефона (Код)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE,
+
+	CONSTRAINT FK_Телефон_КодАбонента FOREIGN KEY (КодАбонента)
+		REFERENCES Абонент (Код)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE
+)
+
+CREATE TABLE Авторизация (
+	Код INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+	Логин NVARCHAR(10) NOT NULL,
+	Пароль NVARCHAR(100) NOT NULL,
+	Доступ NVARCHAR(1) NOT NULL,
+	Фамилия NVARCHAR(25) NOT NULL,
+	Имя NVARCHAR(25) NOT NULL
+)	
